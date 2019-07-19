@@ -23,10 +23,17 @@ button.addEventListener('click', function () {
 
 function getCheckedCategory() {
 
-    var realestate = document.querySelector("#realestate-free").checked;
+    var realestate = document.getElementById("realestate-free");
+    var pocketWatch = document.getElementById("pocket-watch");
 
-    if (realestate) 
+    var isCheckedRealestate = realestate.checked;
+    var isCheckedPocketWatch = pocketWatch.checked;
+
+    if (isCheckedRealestate) 
     {
-        return document.querySelector("#realestate-free").value;
+        return realestate.value;
+    } else if (isCheckedPocketWatch)
+    {
+        return pocketWatch.value;
     }
 }
