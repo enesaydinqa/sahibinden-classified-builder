@@ -1,4 +1,4 @@
-async function setRealEstateAddress() {
+async function selectAddresses(isInApartmentComplex) {
     const changeEvent = new Event('change', {
         bubbles: true
     });
@@ -22,10 +22,12 @@ async function setRealEstateAddress() {
     quarterSelect.dispatchEvent(changeEvent);
     await sleep(2000);
 
-    const inApartmentComplexSelect = document.getElementsByName("inApartmentComplex")[0]; // Site İçerisinde
+    if (isInApartmentComplex) {
+        const inApartmentComplexSelect = document.getElementsByName("inApartmentComplex")[0];
 
-    const inApartmentComplexSelectItems = inApartmentComplexSelect.options.length;
-    inApartmentComplexSelect.selectedIndex = Math.floor(Math.random() * (inApartmentComplexSelectItems - 1)) + 1;
-    inApartmentComplexSelect.dispatchEvent(changeEvent);
-    await sleep(3000);
+        const inApartmentComplexSelectItems = inApartmentComplexSelect.options.length;
+        inApartmentComplexSelect.selectedIndex = Math.floor(Math.random() * (inApartmentComplexSelectItems - 1)) + 1;
+        inApartmentComplexSelect.dispatchEvent(changeEvent);
+        await sleep(3000);
+    }
 }
