@@ -50,7 +50,7 @@ async function realEstateFormFill() {
         availableForLoanCheckbox.dispatchEvent(changeEvent);
     }
 
-    setClassifiedAddress();
+    setRealEstateAddress();
 
     const postDetailCheckboxes = document.querySelectorAll(".post-detailed-information [type='checkbox']"); // Post Detail Checkboxes
 
@@ -62,10 +62,6 @@ async function realEstateFormFill() {
             check.click();
         }
     });
-
-    const timeExtendRBRadioButton = document.querySelectorAll(".time-extend-offer .offers > li .big-box"); // İlan süresi
-    timeExtendRBRadioButton[0].click(); // 30 GÜNLÜK İLAN
-    timeExtendRBRadioButton[0].dispatchEvent(changeEvent);
 
     const roomNumberSelect = document.getElementsByName("a20")[0]; // Oda Sayısı
     const roomNumberSelectItems = roomNumberSelect.options.length;

@@ -3,11 +3,12 @@ chrome.runtime.onMessage.addListener(
 
         const data = request.data;
 
-        console.log(data)
-        if (data === "realestate-free") {
+        if (data === "realestate") {
             realEstateFormFill();
         } else if (data === "pocket-watch") {
-            pocketWatchFormFill();
+            pocketWatchFormFill(false);
+        } else if (data === "pocket-watch-get") {
+            pocketWatchFormFill(true);
         }
 
         sendResponse({

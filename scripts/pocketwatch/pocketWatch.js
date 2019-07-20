@@ -1,14 +1,9 @@
-async function pocketWatchFormFill() {
+async function pocketWatchFormFill(isGet) {
 
     console.log("İkinci El ve Sıfır Alışveriş > Saat > Cep Saati");
 
     const changeEvent = new Event('change', {
         bubbles: true
-    });
-
-    const submitEvent = new Event('submit', {
-        bubbles: false,
-        cancelable: false
     });
 
     const classifiedTitleEl = document.getElementsByName("addClassifiedTitle")[0]; // İlan Başlığı
@@ -20,6 +15,25 @@ async function pocketWatchFormFill() {
     classifiedDescriptionEl.value = "<p>".concat(randomGenerate(700)).concat("</p>");
     classifiedDescriptionEl.dispatchEvent(changeEvent);
 
+    if (isGet) {
+        setPocketWatchGetForm();
+    } else {
+        setPocketWatchForm();
+    }
+
+    const postRulesCheckCheckbox = document.getElementsByName("postRulesCheck")[0]; // İlan verme kurallarınıokudum, kabul ediyorum
+
+    if (postRulesCheckCheckbox.checked === false) {
+        postRulesCheckCheckbox.click();
+        postRulesCheckCheckbox.dispatchEvent(changeEvent);
+    }
+}
+
+async function setPocketWatchGetForm() {
+
+    const changeEvent = new Event('change', {
+        bubbles: true
+    });
 
     const statusSelect = document.getElementsByName("itemCondition")[0]; // Durumu
     const statusSelectItems = statusSelect.options.length;
@@ -110,7 +124,7 @@ async function pocketWatchFormFill() {
     cargoNoteForTextArea.dispatchEvent(changeEvent);
 
 
-    var salesContractCheckbox = document.getElementsByName("salesContract")[0]; // Satış Kontratı
+    const salesContractCheckbox = document.getElementsByName("salesContract")[0]; // Satış Kontratı
     salesContractCheckbox.click();
 
     if (salesContractCheckbox.checked === false) {
@@ -119,19 +133,56 @@ async function pocketWatchFormFill() {
     }
 
 
-    const thirdpartyMarketplaceAgreementCheckbox = document.getElementsByName("thirdpartyMarketplaceAgreement")[0]; // Üçüncü Taraf Pazar Yeri Sözleşmesi
-    thirdpartyMarketplaceAgreementCheckbox.click();
+    const thirdPartyMarketplaceAgreementCheckbox = document.getElementsByName("thirdpartyMarketplaceAgreement")[0]; // Üçüncü Taraf Pazar Yeri Sözleşmesi
+    thirdPartyMarketplaceAgreementCheckbox.click();
 
-    if (thirdpartyMarketplaceAgreementCheckbox.checked === false) {
-        thirdpartyMarketplaceAgreementCheckbox.click();
-        thirdpartyMarketplaceAgreementCheckbox.dispatchEvent(changeEvent);
+    if (thirdPartyMarketplaceAgreementCheckbox.checked === false) {
+        thirdPartyMarketplaceAgreementCheckbox.click();
+        thirdPartyMarketplaceAgreementCheckbox.dispatchEvent(changeEvent);
     }
+}
+
+async function setPocketWatchForm() {
+
+    const changeEvent = new Event('change', {
+        bubbles: true
+    });
+
+    const addClassifiedPrice = document.getElementsByName("addClassifiedPrice")[0]; // Fiyat
+    addClassifiedPrice.value = randomNumberGenerate(3);
+    addClassifiedPrice.focus();
+    addClassifiedPrice.dispatchEvent(changeEvent);
+
+    const statusSelect = document.getElementsByName("condition")[0]; // Durumu
+    const statusSelectItems = statusSelect.options.length;
+    statusSelect.selectedIndex = Math.floor(Math.random() * (statusSelectItems - 1)) + 1;
+    statusSelect.dispatchEvent(changeEvent);
+
+    setClassifiedAddress();
+}
 
 
-    const postRulesCheckCheckbox = document.getElementsByName("postRulesCheck")[0]; // İlan verme kurallarınıokudum, kabul ediyorum
+async function setClassifiedAddress() {
+    const changeEvent = new Event('change', {
+        bubbles: true
+    });
 
-    if (postRulesCheckCheckbox.checked === false) {
-        postRulesCheckCheckbox.click();
-        postRulesCheckCheckbox.dispatchEvent(changeEvent);
-    }
+    const citySelect = document.getElementsByName("city")[0]; // İl
+    const townSelect = document.getElementsByName("town")[0]; // İlçe
+    const quarterSelect = document.getElementsByName("quarter")[0]; // Mahalle
+
+    const citySelectItems = citySelect.options.length;
+    citySelect.selectedIndex = Math.floor(Math.random() * (citySelectItems - 1)) + 1;
+    citySelect.dispatchEvent(changeEvent);
+    await sleep(800);
+
+    const townSelectItems = townSelect.options.length;
+    townSelect.selectedIndex = Math.floor(Math.random() * (townSelectItems - 1)) + 1;
+    townSelect.dispatchEvent(changeEvent);
+    await sleep(800);
+
+    const quarterSelectItems = quarterSelect.options.length;
+    quarterSelect.selectedIndex = Math.floor(Math.random() * (quarterSelectItems - 1)) + 1;
+    quarterSelect.dispatchEvent(changeEvent);
+    await sleep(3000);
 }

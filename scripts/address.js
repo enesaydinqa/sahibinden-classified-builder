@@ -1,4 +1,4 @@
-async function setClassifiedAddress() {
+async function setRealEstateAddress() {
     const changeEvent = new Event('change', {
         bubbles: true
     });

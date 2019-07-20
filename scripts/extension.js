@@ -1,4 +1,4 @@
-document.getElementById('header').textContent = "Select Category";
+document.getElementById("header").textContent = "Select Category";
 
 const button = document.getElementById("save");
 
@@ -23,15 +23,19 @@ button.addEventListener('click', function () {
 
 function getCheckedCategory() {
 
-    const realestate = document.getElementById("realestate-free");
+    const realEstate = document.getElementById("realestate");
     const pocketWatch = document.getElementById("pocket-watch");
+    const pocketWatchGet = document.getElementById("pocket-watch-get");
 
-    const isCheckedRealestate = realestate.checked;
-    const isCheckedPocketWatch = pocketWatch.checked;
+    const isCheckedRealEstate = realEstate.checked;
+    const isCheckedPocket = pocketWatch.checked;
+    const isCheckedPocketWatch = pocketWatchGet.checked;
 
-    if (isCheckedRealestate) {
-        return realestate.value;
-    } else if (isCheckedPocketWatch) {
+    if (isCheckedRealEstate) {
+        return realEstate.value;
+    } else if (isCheckedPocket) {
         return pocketWatch.value;
+    } else if (isCheckedPocketWatch) {
+        return pocketWatchGet.value;
     }
 }
