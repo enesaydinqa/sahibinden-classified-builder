@@ -1,143 +1,136 @@
 async function pocketWatchFormFill() {
 
-	console.log("İkinci El ve Sıfır Alışveriş > Saat > Cep Saati");
+    console.log("İkinci El ve Sıfır Alışveriş > Saat > Cep Saati");
 
-	const changeEvent = new Event('change', {
-		bubbles: true
-	});
+    const changeEvent = new Event('change', {
+        bubbles: true
+    });
 
-	var submitEvent = new Event('submit', {
-		bubbles: false,
-		cancelable: false
-	});
+    const submitEvent = new Event('submit', {
+        bubbles: false,
+        cancelable: false
+    });
 
-	var classifiedTitleEl = document.getElementsByName("addClassifiedTitle")[0]; // İlan Başlığı
-	classifiedTitleEl.value = randomGenerate(5).concat(" ").concat(randomGenerate(7).concat(" ").concat(randomGenerate(8)));
-	classifiedTitleEl.dispatchEvent(changeEvent);
-
-
-	var classifiedDescriptionEl = document.querySelector("[name='addClassifiedDetail']  textarea"); // Açıklama
-	classifiedDescriptionEl.value = "<p>".concat(randomGenerate(700)).concat("</p>");
-	classifiedDescriptionEl.dispatchEvent(changeEvent);
+    const classifiedTitleEl = document.getElementsByName("addClassifiedTitle")[0]; // İlan Başlığı
+    classifiedTitleEl.value = randomGenerate(5).concat(" ").concat(randomGenerate(7).concat(" ").concat(randomGenerate(8)));
+    classifiedTitleEl.dispatchEvent(changeEvent);
 
 
-	var statusSelect = document.getElementsByName("itemCondition")[0]; // Durumu
-	const statusSelectItems = statusSelect.options.length;
-	var statusSelectItemsIndex = Math.floor(Math.random() * (statusSelectItems - 1)) + 1;
-	statusSelect.selectedIndex = statusSelectItemsIndex;
-	statusSelect.dispatchEvent(changeEvent);
+    const classifiedDescriptionEl = document.querySelector("[name='addClassifiedDetail']  textarea"); // Açıklama
+    classifiedDescriptionEl.value = "<p>".concat(randomGenerate(700)).concat("</p>");
+    classifiedDescriptionEl.dispatchEvent(changeEvent);
 
 
-	var stockCount = document.getElementsByName("addClassifiedQuantity")[0]; // Stok Adedi
-	stockCount.value = randomNumberGenerate(3);
-	stockCount.dispatchEvent(changeEvent);
+    const statusSelect = document.getElementsByName("itemCondition")[0]; // Durumu
+    const statusSelectItems = statusSelect.options.length;
+    statusSelect.selectedIndex = Math.floor(Math.random() * (statusSelectItems - 1)) + 1;
+    statusSelect.dispatchEvent(changeEvent);
 
 
-	var salesPriceOfProduct = document.getElementsByName("pricingAndInstallment")[0]; // Ürünün Satış Fiyatı
-	salesPriceOfProduct.value = randomNumberGenerate(3);
-	salesPriceOfProduct.focus();
-	salesPriceOfProduct.dispatchEvent(changeEvent);
+    const stockCount = document.getElementsByName("addClassifiedQuantity")[0]; // Stok Adedi
+    stockCount.value = randomNumberGenerate(3);
+    stockCount.dispatchEvent(changeEvent);
 
 
-	const shippingPriceRadioButtons = document.querySelectorAll(".shipping-price [type='radio']"); // Kargo Ücreti
-
-	shippingPriceRadioButtons.forEach(check => {
-
-		var random_boolean = Math.random() >= 0.5;
-
-		if (random_boolean) {
-			check.click();
-		}
-	});
+    const salesPriceOfProduct = document.getElementsByName("pricingAndInstallment")[0]; // Ürünün Satış Fiyatı
+    salesPriceOfProduct.value = randomNumberGenerate(3);
+    salesPriceOfProduct.focus();
+    salesPriceOfProduct.dispatchEvent(changeEvent);
 
 
-	var countrySelect = document.querySelector(".shipping-from-where > select:nth-child(2)"); // Ülke
-	var citySelect = document.querySelector(".shipping-from-where > select:nth-child(4)"); // Şehir
+    const shippingPriceRadioButtons = document.querySelectorAll(".shipping-price [type='radio']"); // Kargo Ücreti
 
-	var countrySelectItems = countrySelect.options.length;
-	var countrySelectItemsIndex = Math.floor(Math.random() * (countrySelectItems - 1)) + 1;
+    shippingPriceRadioButtons.forEach(check => {
 
-	countrySelect.selectedIndex = countrySelectItemsIndex;
-	countrySelect.dispatchEvent(changeEvent);
-	await sleep(800);
+        const random_boolean = Math.random() >= 0.5;
 
-	var citySelectItems = citySelect.options.length;
-	var citySelectItemsIndex = Math.floor(Math.random() * (citySelectItems - 1)) + 1;
-
-	citySelect.selectedIndex = citySelectItemsIndex;
-	citySelect.dispatchEvent(changeEvent);
+        if (random_boolean) {
+            check.click();
+        }
+    });
 
 
-	const cargoDestinationRadioButtons = document.querySelectorAll(".cargo-destination [type='radio']"); // Kargonun Gönderilebileceği Bölge
+    const countrySelect = document.querySelector(".shipping-from-where > select:nth-child(2)"); // Ülke
+    const citySelect = document.querySelector(".shipping-from-where > select:nth-child(4)"); // Şehir
 
-	cargoDestinationRadioButtons.forEach(check => {
+    const countrySelectItems = countrySelect.options.length;
+    countrySelect.selectedIndex = Math.floor(Math.random() * (countrySelectItems - 1)) + 1;
+    countrySelect.dispatchEvent(changeEvent);
+    await sleep(800);
 
-		var random_boolean = Math.random() >= 0.5;
-
-		if (random_boolean) {
-			check.click();
-		}
-	});
-
-
-	const addClassifiedCargoCheckboxes = document.querySelectorAll("[name='addClassifiedCargo'] [type='checkbox']"); // Gönderi Yapabileceğiniz Kargo Şirketleri
-
-	addClassifiedCargoCheckboxes.forEach(check => {
-
-		var random_boolean = Math.random() >= 0.5;
-
-		if (random_boolean) {
-			check.click();
-		}
-	});
+    const citySelectItems = citySelect.options.length;
+    citySelect.selectedIndex = Math.floor(Math.random() * (citySelectItems - 1)) + 1;
+    citySelect.dispatchEvent(changeEvent);
 
 
-	const addCargoRefundCourier = document.querySelectorAll("[name='addCargoRefundCourier'] [type='checkbox']"); // İade Durumunda Tercih Ettiğiniz Kargo Şirketleri  
+    const cargoDestinationRadioButtons = document.querySelectorAll(".cargo-destination [type='radio']"); // Kargonun Gönderilebileceği Bölge
 
-	addCargoRefundCourier.forEach(check => {
+    cargoDestinationRadioButtons.forEach(check => {
 
-		var random_boolean = Math.random() >= 0.5;
+        const random_boolean = Math.random() >= 0.5;
 
-		if (random_boolean) {
-			check.click();
-		}
-	});
-
-
-	var cargoDeliveryDurationSelect = document.getElementsByName("cargoDeliveryDuration")[0]; // Kargoya Veriliş Süresi
-	var cargoDeliveryDurationSelectItems = cargoDeliveryDurationSelect.options.length;
-	var cargoDeliveryDurationSelectItemsIndex = Math.floor(Math.random() * (cargoDeliveryDurationSelectItems - 1)) + 1;
-
-	cargoDeliveryDurationSelect.selectedIndex = cargoDeliveryDurationSelectItemsIndex;
-	cargoDeliveryDurationSelect.dispatchEvent(changeEvent);
+        if (random_boolean) {
+            check.click();
+        }
+    });
 
 
-	var cargoNoteForTextArea = document.querySelector(".cargo-note-for textarea"); // Alıcılar için Kargo Notunuz (isteğe bağlı)
-	cargoNoteForTextArea.value = randomGenerate(150);
-	cargoNoteForTextArea.dispatchEvent(changeEvent);
+    const addClassifiedCargoCheckboxes = document.querySelectorAll("[name='addClassifiedCargo'] [type='checkbox']"); // Gönderi Yapabileceğiniz Kargo Şirketleri
+
+    addClassifiedCargoCheckboxes.forEach(check => {
+
+        const random_boolean = Math.random() >= 0.5;
+
+        if (random_boolean) {
+            check.click();
+        }
+    });
 
 
-	var salesContractCheckbox = document.getElementsByName("salesContract")[0]; // Satış Kontratı
-	salesContractCheckbox.click();
+    const addCargoRefundCourier = document.querySelectorAll("[name='addCargoRefundCourier'] [type='checkbox']"); // İade Durumunda Tercih Ettiğiniz Kargo Şirketleri
 
-    if (salesContractCheckbox.checked == false) {
+    addCargoRefundCourier.forEach(check => {
+
+        const random_boolean = Math.random() >= 0.5;
+
+        if (random_boolean) {
+            check.click();
+        }
+    });
+
+
+    const cargoDeliveryDurationSelect = document.getElementsByName("cargoDeliveryDuration")[0]; // Kargoya Veriliş Süresi
+    const cargoDeliveryDurationSelectItems = cargoDeliveryDurationSelect.options.length;
+    cargoDeliveryDurationSelect.selectedIndex = Math.floor(Math.random() * (cargoDeliveryDurationSelectItems - 1)) + 1;
+    cargoDeliveryDurationSelect.dispatchEvent(changeEvent);
+
+
+    const cargoNoteForTextArea = document.querySelector(".cargo-note-for textarea"); // Alıcılar için Kargo Notunuz (isteğe bağlı)
+    cargoNoteForTextArea.value = randomGenerate(150);
+    cargoNoteForTextArea.dispatchEvent(changeEvent);
+
+
+    var salesContractCheckbox = document.getElementsByName("salesContract")[0]; // Satış Kontratı
+    salesContractCheckbox.click();
+
+    if (salesContractCheckbox.checked === false) {
         salesContractCheckbox.click();
         salesContractCheckbox.dispatchEvent(changeEvent);
     }
 
 
-	var thirdpartyMarketplaceAgreementCheckbox = document.getElementsByName("thirdpartyMarketplaceAgreement")[0]; // Üçüncü Taraf Pazar Yeri Sözleşmesi
-	thirdpartyMarketplaceAgreementCheckbox.click();
+    const thirdpartyMarketplaceAgreementCheckbox = document.getElementsByName("thirdpartyMarketplaceAgreement")[0]; // Üçüncü Taraf Pazar Yeri Sözleşmesi
+    thirdpartyMarketplaceAgreementCheckbox.click();
 
-    if (thirdpartyMarketplaceAgreementCheckbox.checked == false) {
+    if (thirdpartyMarketplaceAgreementCheckbox.checked === false) {
         thirdpartyMarketplaceAgreementCheckbox.click();
         thirdpartyMarketplaceAgreementCheckbox.dispatchEvent(changeEvent);
     }
 
 
-    var postRulesCheckCheckbox = document.getElementsByName("postRulesCheck")[0]; // İlan verme kurallarınıokudum, kabul ediyorum
+    const postRulesCheckCheckbox = document.getElementsByName("postRulesCheck")[0]; // İlan verme kurallarınıokudum, kabul ediyorum
 
-    if (postRulesCheckCheckbox.checked == false) {
+    if (postRulesCheckCheckbox.checked === false) {
         postRulesCheckCheckbox.click();
         postRulesCheckCheckbox.dispatchEvent(changeEvent);
     }

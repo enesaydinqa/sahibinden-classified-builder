@@ -1,8 +1,7 @@
 chrome.runtime.onMessage.addListener(
-
     async function (request, sender, sendResponse) {
 
-        var data = request.data;
+        const data = request.data;
 
         console.log(data)
         if (data === "realestate-free") {

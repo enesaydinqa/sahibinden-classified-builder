@@ -1,10 +1,10 @@
 document.getElementById('header').textContent = "Select Category";
 
-var button = document.getElementById("save");
+const button = document.getElementById("save");
 
 button.addEventListener('click', function () {
 
-    var checkedCategory = getCheckedCategory();
+    const checkedCategory = getCheckedCategory();
 
     $('#header').html(checkedCategory);
 
@@ -23,17 +23,15 @@ button.addEventListener('click', function () {
 
 function getCheckedCategory() {
 
-    var realestate = document.getElementById("realestate-free");
-    var pocketWatch = document.getElementById("pocket-watch");
+    const realestate = document.getElementById("realestate-free");
+    const pocketWatch = document.getElementById("pocket-watch");
 
-    var isCheckedRealestate = realestate.checked;
-    var isCheckedPocketWatch = pocketWatch.checked;
+    const isCheckedRealestate = realestate.checked;
+    const isCheckedPocketWatch = pocketWatch.checked;
 
-    if (isCheckedRealestate) 
-    {
+    if (isCheckedRealestate) {
         return realestate.value;
-    } else if (isCheckedPocketWatch)
-    {
+    } else if (isCheckedPocketWatch) {
         return pocketWatch.value;
     }
 }
