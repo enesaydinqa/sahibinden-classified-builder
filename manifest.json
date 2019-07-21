@@ -19,12 +19,12 @@
       "js": [
         "scripts/content.js",
         "scripts/enums.js",
-        "scripts/postRulesCheck.js",
-        "scripts/address.js",
+        "scripts/classifieds/postRulesCheck.js",
+        "scripts/classifieds/address.js",
         "scripts/realestate/realEstate.js",
-        "scripts/actionHelper.js",
+        "scripts/classifieds/actionHelper.js",
         "scripts/pocketwatch/pocketWatch.js",
-        "scripts/teachingStuff/teachingStuff.js"
+        "scripts/teachingstuff/teachingStuff.js"
       ],
       "all_frames": true,
       "run_at": "document_end"
