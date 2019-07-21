@@ -26,10 +26,12 @@ function getCheckedCategory() {
     const realEstate = document.getElementById("realestate");
     const pocketWatch = document.getElementById("pocket-watch");
     const pocketWatchGet = document.getElementById("pocket-watch-get");
+    const teachingStuff = document.getElementById("teaching-stuff");
 
     const isCheckedRealEstate = realEstate.checked;
     const isCheckedPocket = pocketWatch.checked;
     const isCheckedPocketWatch = pocketWatchGet.checked;
+    const isTeachingStuff = teachingStuff.checked;
 
     if (isCheckedRealEstate) {
         return realEstate.value;
@@ -37,5 +39,7 @@ function getCheckedCategory() {
         return pocketWatch.value;
     } else if (isCheckedPocketWatch) {
         return pocketWatchGet.value;
+    } else if (isTeachingStuff) {
+        return teachingStuff.value;
     }
 }

@@ -1,24 +1,33 @@
-{  
-  "name":"SahiFast Classified",
-  "version":"1.0",
-  "manifest_version":2,
-  "description":"This plugin allows you to quickly create classifieds",
+{
+  "name": "SahiFast Classified",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "This plugin allows you to quickly create classifieds",
   "incognito": "split",
-
-  "browser_action":
-  {  
-      "default_icon":"sahibinden.png",
-      "default_popup":"index.html"
-  }, 
-
-  "content_scripts": 
-  [{
-    "matches":["<all_urls>"],
-    "js": ["scripts/content.js","scripts/postRulesCheck.js", "scripts/address.js", "scripts/realestate/realEstate.js", "scripts/actionHelper.js", "scripts/pocketwatch/pocketWatch.js"],
-    "all_frames": true,
-    "run_at": "document_end"
-  }],
-   
-  "permissions": ["activeTab"],
+  "browser_action": {
+    "default_icon": "sahibinden.png",
+    "default_popup": "index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "scripts/content.js",
+        "scripts/postRulesCheck.js",
+        "scripts/address.js",
+        "scripts/realestate/realEstate.js",
+        "scripts/actionHelper.js",
+        "scripts/pocketwatch/pocketWatch.js",
+        "scripts/teachingStuff/teachingStuff.js"
+      ],
+      "all_frames": true,
+      "run_at": "document_end"
+    }
+  ],
+  "permissions": [
+    "activeTab"
+  ],
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }

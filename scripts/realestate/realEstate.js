@@ -1,5 +1,7 @@
 async function realEstateFormFill() {
 
+    console.log("Emlak > Konut > Satılık > Daire");
+
     const changeEvent = new Event('change', {
         bubbles: true
     });

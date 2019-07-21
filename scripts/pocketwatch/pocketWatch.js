@@ -22,15 +22,15 @@ async function pocketWatchFormFill(isGet) {
 
 
     if (isGet) {
-        await setPocketWatchGetForm();
+        await setPocketWatchGetClassifiedForm();
     } else {
-        await setPocketWatchForm();
+        await setPocketWatchClassifiedForm();
     }
 
     await postRulesCheck();
 }
 
-async function setPocketWatchGetForm() {
+async function setPocketWatchGetClassifiedForm() {
 
     const changeEvent = new Event('change', {
         bubbles: true
@@ -116,7 +116,7 @@ async function setPocketWatchGetForm() {
     }
 }
 
-async function setPocketWatchForm() {
+async function setPocketWatchClassifiedForm() {
 
     const changeEvent = new Event('change', {
         bubbles: true
