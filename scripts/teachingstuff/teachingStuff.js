@@ -26,8 +26,9 @@ async function teachingStuffFormFill() {
         select.selectedIndex = Math.floor(Math.random() * (selectItems - 1)) + 1;
         select.dispatchEvent(changeEvent);
     } catch (err) {
-        console.log("This category not appeared selectbox")
+        console.log("This category 'ders' selectbox not appeared");
     }
+
 
     // SELECT BOXES
 
@@ -39,6 +40,7 @@ async function teachingStuffFormFill() {
         select.selectedIndex = Math.floor(Math.random() * (selectItems - 1)) + 1;
         select.dispatchEvent(changeEvent);
     });
+
 
     // CHECKBOXES
 

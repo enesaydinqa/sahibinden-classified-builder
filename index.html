@@ -1,62 +1,64 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
+
 <body>
-    <style>
-        html,
-        body,
-        #wrapper {
-            width: 350px;
-            height: 200px;
-        }
+<style>
+    html,
+    body {
+        width: 350px;
+        height: 200px;
+    }
 
-        .container {
-            max-height: 600px;
-            min-height: 400px;
-            width: 350px;
-            border: 2px solid rgba(0, 0, 0, 0.3);
-            border-radius: 2px;
-            background: white;
-        }
-        
-        body {
-            font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-            font-size: 100%;
-        }
+    .container {
+        max-height: 600px;
+        min-height: 400px;
+        width: 350px;
+        border: 2px solid rgba(0, 0, 0, 0.3);
+        border-radius: 2px;
+        background: white;
+    }
 
-        div.b {
-         font-size: 120%;
-        }
-    </style>
-    <div class="container">
-        <div class="page-header">
-            <h3>SahiFast Classified</h3>
-            <p id="header"></p>
-        </div>
-        <div class="b">
-            <input type="radio" id="realestate" name="category" value="realestate"> Emlak > Konut > Satılık > Daire
-            <br>
-        </div>
-        <div class="b">
-            <input type="radio" id="pocket-watch" name="category" value="pocket-watch"> İkinci El ve Sıfır Alışveriş > Saat > Cep Saati
-            <br>
-        </div>
-        <div class="b">
-            <input type="radio" id="pocket-watch-get" name="category" value="pocket-watch-get"> (GET) | İkinci El ve Sıfır Alışveriş > Saat > Cep Saati
-            <br>
-        </div>
-        <div class="b">
-            <input type="radio" id="teaching-stuff" name="category" value="teaching-stuff"> Özel Ders Verenler (Hepsi)
-            <br>
-        </div>
-        <div>
-            <button class="btn btn-primary" style="margin-top: 45%" id="save">Form Fill</button>
-        </div>
+    body {
+        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+        font-size: 100%;
+    }
+
+    div.b {
+        font-size: 120%;
+    }
+</style>
+<div class="container">
+    <div class="page-header">
+        <h3 style="font-size: large">Sahibinden.com - Fast Classified</h3>
+        <p id="header"></p>
     </div>
-    <script src="/scripts/jquery.min.js" type="text/javascript"></script>
-    <script src="/scripts/extension.js" type="text/javascript"></script>
+    <div class="b">
+        <input type="radio" id="realestate" name="category" value="realestate"> Emlak > Konut > Satılık > Daire
+        <br>
+    </div>
+    <div class="b">
+        <input type="radio" id="pocket-watch" name="category" value="pocket-watch"> İkinci El ve Sıfır Alışveriş > Saat > Cep Saati
+        <br>
+    </div>
+    <div class="b">
+        <input type="radio" id="pocket-watch-get" name="category" value="pocket-watch-get"> (GET) | İkinci El ve Sıfır Alışveriş > Saat > Cep Saati
+        <br>
+    </div>
+    <div class="b">
+        <input type="radio" id="teaching-stuff" name="category" value="teaching-stuff"> Özel Ders Verenler (Hepsi)
+        <br>
+    </div>
+    <div>
+        <button class="btn btn-primary" style="margin-top: 45%" id="save">Form Fill</button>
+    </div>
+</div>
+<script src="/scripts/jquery.min.js" type="text/javascript"></script>
+<script src="/scripts/extension.js" type="text/javascript"></script>
 </body>
+
 </html>

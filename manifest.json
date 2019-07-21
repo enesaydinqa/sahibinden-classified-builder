@@ -1,8 +1,8 @@
 {
-  "name": "SahiFast Classified",
+  "name": "sahibinden.com - Fast Classified",
   "version": "1.0",
   "manifest_version": 2,
-  "description": "This plugin allows you to quickly create classifieds",
+  "description": "sahibinden quickly create classifieds",
   "incognito": "split",
   "browser_action": {
     "default_icon": "sahibinden.png",
