@@ -8,6 +8,9 @@
     "default_icon": "sahibinden.png",
     "default_popup": "index.html"
   },
+  "icons": {
+    "1": "sahibinden.png"
+  },
   "content_scripts": [
     {
       "matches": [
@@ -15,6 +18,7 @@
       ],
       "js": [
         "scripts/content.js",
+        "scripts/enums.js",
         "scripts/postRulesCheck.js",
         "scripts/address.js",
         "scripts/realestate/realEstate.js",
