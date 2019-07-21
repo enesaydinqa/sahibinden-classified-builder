@@ -48,8 +48,8 @@ async function realEstateFormFill() {
 
     selectBoxes.forEach(function (elementName) {
         const select = document.getElementsByName(elementName)[0];
-        const selectItems = select.options.length;
-        select.selectedIndex = Math.floor(Math.random() * (selectItems - 1)) + 1;
+        const selectBoxItems = select.options.length;
+        select.selectedIndex = Math.floor(Math.random() * (selectBoxItems - 1)) + 1;
         select.dispatchEvent(changeEvent);
     });
 

@@ -3,10 +3,10 @@ async function postRulesCheck() {
         bubbles: true
     });
 
-    const postRulesCheckCheckbox = document.getElementsByName("postRulesCheck")[0];
+    const postRulesCheck = document.getElementsByName("postRulesCheck")[0];
 
-    if (postRulesCheckCheckbox.checked === false) {
-        postRulesCheckCheckbox.click();
-        postRulesCheckCheckbox.dispatchEvent(changeEvent);
+    if (postRulesCheck.checked === false) {
+        postRulesCheck.click();
+        postRulesCheck.dispatchEvent(changeEvent);
     }
 }

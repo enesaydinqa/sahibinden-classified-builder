@@ -20,25 +20,24 @@ async function teachingStuffFormFill() {
         input.dispatchEvent(changeEvent);
     });
 
-    try {
-        const select = document.querySelector("select[an-form-object-name='Ders']");
-        const selectItems = select.options.length;
-        select.selectedIndex = Math.floor(Math.random() * (selectItems - 1)) + 1;
-        select.dispatchEvent(changeEvent);
-    } catch (err) {
-        console.log("This category 'ders' selectbox not appeared");
-    }
-
 
     // SELECT BOXES
 
-    let genericSelectBoxes = ["select[an-form-object-name='Ders Yeri'], select[an-form-object-name='Ders Aracı'], select[an-form-object-name='Spor Dalı']", "select[an-form-object-name='Cinsiyet']"];
+    let selectBoxes = [
+        "select[an-form-object-name='Ders']",
+        "select[an-form-object-name='Ders Yeri'], select[an-form-object-name='Ders Aracı'], select[an-form-object-name='Spor Dalı']",
+        "select[an-form-object-name='Cinsiyet']"
+    ];
 
-    genericSelectBoxes.forEach(function (elementName) {
+    selectBoxes.forEach(function (elementName) {
+
         const select = document.querySelector(elementName);
-        const selectItems = select.options.length;
-        select.selectedIndex = Math.floor(Math.random() * (selectItems - 1)) + 1;
-        select.dispatchEvent(changeEvent);
+
+        if (typeof (select) != 'undefined' && select != null) {
+            const selectItems = select.options.length;
+            select.selectedIndex = Math.floor(Math.random() * (selectItems - 1)) + 1;
+            select.dispatchEvent(changeEvent);
+        }
     });
 
 
