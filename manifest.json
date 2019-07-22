@@ -8,7 +8,9 @@
     "default_popup": "index.html"
   },
   "icons": {
-    "16": "images/sahibinden16.png"
+    "16": "images/sahibinden16.png",
+    "48": "images/sahibinden16.png",
+    "1288": "images/sahibinden16.png"
   },
   "content_scripts": [
     {
