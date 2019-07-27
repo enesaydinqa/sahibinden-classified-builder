@@ -6,7 +6,15 @@ button.addEventListener('click', function () {
 
     const checkedCategory = getCheckedCategory();
 
-    $('#header').html(checkedCategory);
+    const header = $('#header');
+
+    if (checkedCategory !== null) {
+        header.css("background-color", "");
+        header.html(checkedCategory);
+    } else {
+        header.css("background-color", "#ff1b00");
+        header.html("Please Category Select");
+    }
 
     chrome.tabs.query({
         active: true,
@@ -23,13 +31,13 @@ button.addEventListener('click', function () {
 
 function getCheckedCategory() {
 
-    const radioButtons = document.querySelectorAll(".container [name='category']");
+    const radioButtons = document.querySelectorAll("[name='category']");
 
     let checkedCategory = null;
 
-    radioButtons.forEach(checkbox => {
-        if (checkbox.checked === true) {
-            checkedCategory = checkbox.value;
+    radioButtons.forEach(radioButton => {
+        if (radioButton.checked === true) {
+            checkedCategory = radioButton.value;
         }
     });
 

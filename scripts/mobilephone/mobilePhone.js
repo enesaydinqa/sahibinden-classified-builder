@@ -82,14 +82,14 @@ async function mobilePhoneFormFill(isGet) {
         if (isGet) {
             await classifiedGETAreaFill(data);
         } else {
-            await setMobilePhoneClassifiedForm(data);
+            await defaultMobilePhoneClassifiedFormFill(data);
         }
 
         await postRulesCheck(data);
     });
 }
 
-async function setMobilePhoneClassifiedForm(objects) {
+async function defaultMobilePhoneClassifiedFormFill(objects) {
 
     const changeEvent = new Event('change', {
         bubbles: true

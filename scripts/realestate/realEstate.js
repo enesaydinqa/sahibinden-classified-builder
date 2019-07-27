@@ -39,29 +39,6 @@ async function realEstateFormFill() {
             input.dispatchEvent(changeEvent);
         });
 
-        // CHECKBOXES
-
-        let checkboxes = [
-            data.RealEstate.Furnished,
-            data.RealEstate.AvailableForLoan,
-            data.Generic.PostDetailInformation
-        ];
-
-        checkboxes.forEach(function (selector) {
-
-            const checkbox = document.querySelectorAll(selector);
-
-            checkbox.forEach(check => {
-                const random_boolean = Math.random() >= 0.5;
-
-                if (random_boolean) {
-                    check.click();
-                }
-            })
-        });
-
-        await selectAddresses(data, true);
-
         // SELECT BOXES
 
         let selectBoxes = [
@@ -83,6 +60,29 @@ async function realEstateFormFill() {
             select.dispatchEvent(changeEvent);
         });
 
+        // CHECKBOXES
+
+        let checkboxes = [
+            data.RealEstate.Furnished,
+            data.RealEstate.AvailableForLoan,
+            data.Generic.PostDetailInformation
+        ];
+
+        checkboxes.forEach(function (selector) {
+
+            const checkbox = document.querySelectorAll(selector);
+
+            checkbox.forEach(check => {
+                const random_boolean = Math.random() >= 0.5;
+
+                if (random_boolean) {
+                    check.click();
+                }
+            })
+        });
+
+
+        await selectAddresses(data, true);
         await postRulesCheck(data);
     });
 }
