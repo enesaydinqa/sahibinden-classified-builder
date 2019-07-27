@@ -41,6 +41,6 @@
   ],
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "web_accessible_resources": [
-    "resources/GET-Classified-Elements.json"
+    "resources/DOM-Elements.json"
   ]
 }

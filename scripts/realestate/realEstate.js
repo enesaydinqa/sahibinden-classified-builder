@@ -6,52 +6,83 @@ async function realEstateFormFill() {
         bubbles: true
     });
 
-    // INPUTS
+    var init = {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+        mode: 'cors',
+        cache: 'default'
+    };
 
-    let inputs = new Map();
+    const url = chrome.extension.getURL(Resources.DOM_ELEMENTS_JSON_PATH);
 
-    inputs.set("[name='addClassifiedTitle']", randomGenerate(5).concat(" ").concat(randomGenerate(7).concat(" ").concat(randomGenerate(8))));
-    inputs.set("[name='addClassifiedDetail']  textarea", "<p>".concat(randomGenerate(500)).concat("</p>"));
-    inputs.set("[name='addClassifiedPrice']", randomNumberGenerate(2).concat(".").concat(randomNumberGenerate(3)));
-    inputs.set("[name='a24']", randomNumberGenerate(3));
-    inputs.set("[name='a107889']", randomNumberGenerate(2));
-    inputs.set("[name='a104239']", randomNumberGenerate(3));
+    let request = new Request(url, init);
 
-    inputs.forEach(function (value, key) {
-        const input = document.querySelector(key);
-        input.value = value;
-        input.dispatchEvent(changeEvent);
+    fetch(request)
+        .then(function (resp) {
+            return resp.json();
+        }).then(async function (data) {
+
+        // INPUTS
+
+        let inputs = new Map();
+
+        inputs.set(data.Generic.ClassifiedTitle, randomGenerate(5).concat(" ").concat(randomGenerate(7).concat(" ").concat(randomGenerate(8))));
+        inputs.set(data.Generic.ClassifiedDetail, "<p>".concat(randomGenerate(500)).concat("</p>"));
+        inputs.set(data.Generic.ClassifiedPrice, randomNumberGenerate(2).concat(".").concat(randomNumberGenerate(3)));
+        inputs.set(data.RealEstate.SquareMeterGross, randomNumberGenerate(3));
+        inputs.set(data.RealEstate.SquareMeterNet, randomNumberGenerate(2));
+        inputs.set(data.RealEstate.Dues, randomNumberGenerate(3));
+
+        inputs.forEach(function (value, key) {
+            const input = document.querySelector(key);
+            input.value = value;
+            input.dispatchEvent(changeEvent);
+        });
+
+        // CHECKBOXES
+
+        let checkboxes = [
+            data.RealEstate.Furnished,
+            data.RealEstate.AvailableForLoan,
+            data.Generic.PostDetailInformation
+        ];
+
+        checkboxes.forEach(function (selector) {
+
+            const checkbox = document.querySelectorAll(selector);
+
+            checkbox.forEach(check => {
+                const random_boolean = Math.random() >= 0.5;
+
+                if (random_boolean) {
+                    check.click();
+                }
+            })
+        });
+
+        await selectAddresses(data, true);
+
+        // SELECT BOXES
+
+        let selectBoxes = [
+            data.RealEstate.RoomNumber,
+            data.RealEstate.BuildingAge,
+            data.RealEstate.FloorLocation,
+            data.RealEstate.NumberOfFloors,
+            data.RealEstate.Heating,
+            data.RealEstate.NumberOfBathrooms,
+            data.RealEstate.Balcony,
+            data.RealEstate.UsingStatus,
+            data.Generic.Exchange
+        ];
+
+        selectBoxes.forEach(function (elementName) {
+            const select = document.getElementsByName(elementName)[0];
+            const selectBoxItems = select.options.length;
+            select.selectedIndex = Math.floor(Math.random() * (selectBoxItems - 1)) + 1;
+            select.dispatchEvent(changeEvent);
+        });
+
+        await postRulesCheck(data);
     });
-
-    // CHECKBOXES
-
-    let checkboxes = ["[name='a103713']", "[name='a1966']", ".post-detailed-information [type='checkbox']"];
-
-    checkboxes.forEach(function (selector) {
-
-        const checkbox = document.querySelectorAll(selector);
-
-        checkbox.forEach(check => {
-            const random_boolean = Math.random() >= 0.5;
-
-            if (random_boolean) {
-                check.click();
-            }
-        })
-    });
-
-    await selectAddresses(true);
-
-    // SELECT BOXES
-
-    let selectBoxes = ['a20', 'a812', 'a811', 'a810', 'a23', 'a22', 'a106960', 'a98426', 'exchange'];
-
-    selectBoxes.forEach(function (elementName) {
-        const select = document.getElementsByName(elementName)[0];
-        const selectBoxItems = select.options.length;
-        select.selectedIndex = Math.floor(Math.random() * (selectBoxItems - 1)) + 1;
-        select.dispatchEvent(changeEvent);
-    });
-
-    await postRulesCheck();
 }

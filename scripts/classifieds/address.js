@@ -1,11 +1,11 @@
-async function selectAddresses(isInApartmentComplex) {
+async function selectAddresses(objects, isInApartmentComplex) {
     const changeEvent = new Event('change', {
         bubbles: true
     });
 
-    const citySelect = document.getElementsByName("city")[0]; // İl
-    const townSelect = document.getElementsByName("town")[0]; // İlçe
-    const quarterSelect = document.getElementsByName("quarter")[0]; // Mahalle
+    const citySelect = document.getElementsByName(objects.Address.City)[0]; // İl
+    const townSelect = document.getElementsByName(objects.Address.Town)[0]; // İlçe
+    const quarterSelect = document.getElementsByName(objects.Address.Quarter)[0]; // Mahalle
 
     const citySelectItems = citySelect.options.length;
     citySelect.selectedIndex = Math.floor(Math.random() * (citySelectItems - 1)) + 1;
@@ -20,10 +20,11 @@ async function selectAddresses(isInApartmentComplex) {
     const quarterSelectItems = quarterSelect.options.length;
     quarterSelect.selectedIndex = Math.floor(Math.random() * (quarterSelectItems - 1)) + 1;
     quarterSelect.dispatchEvent(changeEvent);
-    await sleep(2000);
 
     if (isInApartmentComplex) {
-        const inApartmentComplexSelect = document.getElementsByName("inApartmentComplex")[0];
+        await sleep(2000);
+
+        const inApartmentComplexSelect = document.getElementsByName(objects.Address.InApartmentComplex)[0];
 
         const inApartmentComplexSelectItems = inApartmentComplexSelect.options.length;
         inApartmentComplexSelect.selectedIndex = Math.floor(Math.random() * (inApartmentComplexSelectItems - 1)) + 1;

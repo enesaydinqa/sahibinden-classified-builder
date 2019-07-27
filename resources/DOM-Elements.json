@@ -1,0 +1,59 @@
+{
+  "Generic": {
+    "ClassifiedTitle": "[name='addClassifiedTitle']",
+    "ClassifiedDetail": "[name='addClassifiedDetail']  textarea",
+    "ClassifiedPrice": "[name='addClassifiedPrice']",
+    "PostRulesCheck": "postRulesCheck",
+    "PostDetailInformation": ".post-detailed-information [type='checkbox']",
+    "Exchange": "exchange",
+    "Condition": "condition"
+  },
+  "GET": {
+    "ItemCondition": "itemCondition",
+    "AddClassifiedQuantity": "addClassifiedQuantity",
+    "PricingAndInstallment": "pricingAndInstallment",
+    "Country": ".shipping-from-where > select:nth-child(2)",
+    "City": ".shipping-from-where > select:nth-child(4)",
+    "ShippingPrice": ".shipping-price [type='radio']",
+    "CargoDestination": ".cargo-destination [type='radio']",
+    "AddClassifiedCargo": "[name='addClassifiedCargo'] [type='checkbox']",
+    "AddCargoRefundCourier": "[name='addCargoRefundCourier'] [type='checkbox']",
+    "CargoDeliveryDuration": "cargoDeliveryDuration",
+    "CargoNotFore": ".cargo-note-for textarea",
+    "SalesContract": "salesContract",
+    "ThirdPartyMarketplaceAgreement": "thirdpartyMarketplaceAgreement"
+  },
+  "Address": {
+    "City": "city",
+    "Town": "town",
+    "Quarter": "quarter",
+    "InApartmentComplex": "inApartmentComplex"
+  },
+  "RealEstate": {
+    "SquareMeterGross": "[name='a24']",
+    "SquareMeterNet": "[name='a107889']",
+    "Dues": "[name='a104239']",
+    "Furnished": "[name='a103713']",
+    "AvailableForLoan": "[name='a1966']",
+    "RoomNumber": "a20",
+    "BuildingAge": "a812",
+    "FloorLocation": "a811",
+    "NumberOfFloors": "a810",
+    "Heating": "a23",
+    "NumberOfBathrooms": "a22",
+    "Balcony": "a106960",
+    "UsingStatus": "a98426"
+  },
+  "MobilePhone": {
+    "OS": "[an-form-object-name='İşletim Sistemi']",
+    "InternalMemory": "[an-form-object-name='Dahili Hafıza']",
+    "ScreenSize": "[an-form-object-name='Ekran Boyutu']",
+    "RAMMemory": "[an-form-object-name='RAM Bellek']",
+    "Camera": "[an-form-object-name='Kamera']",
+    "FrontCamera": "[an-form-object-name='Ön Kamera']",
+    "Color": "[an-form-object-name='Renk']",
+    "RecordType": "[an-form-object-name='Kayıt Türü']",
+    "Warranty": "[an-form-object-name='Garanti']",
+    "WarrantyType": "[an-form-object-name='Garanti Türü']"
+  }
+}

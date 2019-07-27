@@ -6,46 +6,62 @@ async function pocketWatchFormFill(isGet) {
         bubbles: true
     });
 
+    var init = {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+        mode: 'cors',
+        cache: 'default'
+    };
 
-    // INPUTS
+    const url = chrome.extension.getURL(Resources.DOM_ELEMENTS_JSON_PATH);
 
-    let inputs = new Map();
+    let request = new Request(url, init);
 
-    inputs.set("[name='addClassifiedTitle']", randomGenerate(5).concat(" ").concat(randomGenerate(7).concat(" ").concat(randomGenerate(8))));
-    inputs.set("[name='addClassifiedDetail']  textarea", "<p>".concat(randomGenerate(700)).concat("</p>"));
+    fetch(request)
+        .then(function (resp) {
+            return resp.json();
+        }).then(async function (data) {
 
-    inputs.forEach(function (value, key) {
-        const input = document.querySelector(key);
-        input.value = value;
-        input.dispatchEvent(changeEvent);
+        // INPUTS
+
+        let inputs = new Map();
+
+        inputs.set(data.Generic.ClassifiedTitle, randomGenerate(5).concat(" ").concat(randomGenerate(7).concat(" ").concat(randomGenerate(8))));
+        inputs.set(data.Generic.ClassifiedDetail, "<p>".concat(randomGenerate(700)).concat("</p>"));
+
+        inputs.forEach(function (value, key) {
+            const input = document.querySelector(key);
+            input.value = value;
+            input.dispatchEvent(changeEvent);
+        });
+
+
+        if (isGet) {
+            await classifiedGETAreaFill(data);
+        } else {
+            await setPocketWatchClassifiedForm(data);
+        }
+
+        await postRulesCheck(data);
     });
-
-
-    if (isGet) {
-        await classifiedGETAreaFill();
-    } else {
-        await setPocketWatchClassifiedForm();
-    }
-
-    await postRulesCheck();
 }
 
 
-async function setPocketWatchClassifiedForm() {
+async function setPocketWatchClassifiedForm(objects) {
 
     const changeEvent = new Event('change', {
         bubbles: true
     });
 
-    const addClassifiedPrice = document.getElementsByName("addClassifiedPrice")[0]; // Fiyat
+    const addClassifiedPrice = document.querySelector(objects.Generic.ClassifiedPrice); // Fiyat
     addClassifiedPrice.value = randomNumberGenerate(3);
     addClassifiedPrice.dispatchEvent(changeEvent);
 
-    const statusSelect = document.getElementsByName("condition")[0]; // Durumu
+    const statusSelect = document.getElementsByName(objects.Generic.Condition)[0]; // Durumu
     const statusSelectItems = statusSelect.options.length;
     statusSelect.selectedIndex = Math.floor(Math.random() * (statusSelectItems - 1)) + 1;
     statusSelect.dispatchEvent(changeEvent);
 
-    await selectAddresses(false);
+    await selectAddresses(objects,false);
 }
 

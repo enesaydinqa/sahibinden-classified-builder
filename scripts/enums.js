@@ -1,5 +1,4 @@
 let Category = {
-
     REAL_ESTATE: "realestate",
     POCKET_WATCH: "pocket-watch",
     POCKET_WATCH_GET: "pocket-watch-get",
@@ -7,4 +6,8 @@ let Category = {
     MOBILE_PHONE: "mobile-phone",
     MOBILE_PHONE_GET: "mobile-phone-get",
     VEHICLE: "vehicle"
+};
+
+let Resources = {
+    DOM_ELEMENTS_JSON_PATH: "resources/DOM-Elements.json"
 };
