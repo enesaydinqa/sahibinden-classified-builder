@@ -16,6 +16,8 @@ chrome.runtime.onMessage.addListener(async function (request, sender, sendRespon
             await mobilePhoneFormFill(true)
         } else if (data === Category.MOBILE_PHONE) {
             await mobilePhoneFormFill(false)
+        } else if (data === Category.VEHICLE) {
+            await vehicleFormFill();
         }
 
         sendResponse({

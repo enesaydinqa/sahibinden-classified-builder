@@ -1,0 +1,15 @@
+{
+  "itemCondition": "itemCondition",
+  "addClassifiedQuantity": "addClassifiedQuantity",
+  "pricingAndInstallment": "pricingAndInstallment",
+  "Country": ".shipping-from-where > select:nth-child(2)",
+  "City": ".shipping-from-where > select:nth-child(4)",
+  "shippingPrice": ".shipping-price [type='radio']",
+  "cargoDestination": ".cargo-destination [type='radio']",
+  "addClassifiedCargo": "[name='addClassifiedCargo'] [type='checkbox']",
+  "addCargoRefundCourier": "[name='addCargoRefundCourier'] [type='checkbox']",
+  "cargoDeliveryDuration": "cargoDeliveryDuration",
+  "cargoNotFore": ".cargo-note-for textarea",
+  "salesContract": "salesContract",
+  "thirdPartyMarketplaceAgreement": "thirdpartyMarketplaceAgreement"
+}

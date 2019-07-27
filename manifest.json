@@ -1,5 +1,5 @@
 {
-  "name": "sahibinden.com - classified form fill",
+  "name": "sahibinden.com - classified builder",
   "version": "1.0",
   "manifest_version": 2,
   "description": "sahibinden classified form fill extension",
@@ -15,7 +15,9 @@
   "content_scripts": [
     {
       "matches": [
-        "<all_urls>"
+        "*://*.sahibinden.com/*",
+        "http://*.shbdn.com/*",
+        "https://*.shbdn.com/*"
       ],
       "js": [
         "scripts/content.js",
@@ -27,7 +29,8 @@
         "scripts/classifieds/actionHelper.js",
         "scripts/pocketwatch/pocketWatch.js",
         "scripts/teachingstuff/teachingStuff.js",
-        "scripts/mobilephone/mobilePhone.js"
+        "scripts/mobilephone/mobilePhone.js",
+        "scripts/vehicle/vehicle.js"
       ],
       "all_frames": true,
       "run_at": "document_end"
@@ -36,5 +39,8 @@
   "permissions": [
     "activeTab"
   ],
-  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "web_accessible_resources": [
+    "resources/GET-Classified-Elements.json"
+  ]
 }
