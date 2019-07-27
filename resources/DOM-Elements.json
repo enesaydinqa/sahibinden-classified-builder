@@ -55,5 +55,19 @@
     "RecordType": "[an-form-object-name='Kayıt Türü']",
     "Warranty": "[an-form-object-name='Garanti']",
     "WarrantyType": "[an-form-object-name='Garanti Türü']"
+  },
+  "TeachingStuff": {
+    "Education": "select[an-form-object-name='Ders']",
+    "EducationAbout": "select[an-form-object-name='Ders Yeri'], select[an-form-object-name='Ders Aracı'], select[an-form-object-name='Spor Dalı']",
+    "Gender": "select[an-form-object-name='Cinsiyet']",
+    "DetailAttribute": ".detail-attributes-container [type='checkbox']"
+  },
+  "Vehicle": {
+    "KM": "[name='a4']",
+    "Color": "[an-form-object-name='Renk']",
+    "Warranty": "[an-form-object-name='Garanti']",
+    "Nationality": "[an-form-object-name='Plaka / Uyruk']",
+    "Exchange": "[an-form-object-name='Takaslı']",
+    "PostDetailInformation": ".post-detailed-information input[type='radio']"
   }
 }

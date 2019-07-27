@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdcd8b0a-97f1-4652-8701-1ae3ad6ac0b2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/DOM-Elements.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/GET-Classified-Elements.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/classifieds/GETClassifiedForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/classifieds/GETClassifiedForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/classifieds/address.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/classifieds/address.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/classifieds/postRulesCheck.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/classifieds/postRulesCheck.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/enums.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/enums.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/mobilephone/mobilePhone.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/mobilephone/mobilePhone.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/pocketwatch/pocketWatch.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/pocketwatch/pocketWatch.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/realestate/realEstate.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/realestate/realEstate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/DOM-Elements.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/DOM-Elements.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/teachingstuff/teachingStuff.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/teachingstuff/teachingStuff.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/vehicle/vehicle.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/vehicle/vehicle.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,26 +20,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/DOM-Elements.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="728">
-              <caret line="56" column="58" lean-forward="true" selection-start-line="56" selection-start-column="58" selection-end-line="56" selection-end-column="58" />
+            <state relative-caret-position="826">
+              <caret line="65" column="20" selection-start-line="65" selection-start-column="20" selection-end-line="65" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/mobilephone/mobilePhone.js">
+        <entry file="file://$PROJECT_DIR$/scripts/vehicle/vehicle.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="28" selection-start-line="28" selection-end-line="29" selection-end-column="100" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/pocketwatch/pocketWatch.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+            <state relative-caret-position="337">
+              <caret line="30" column="31" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -67,6 +50,7 @@
       <find>post</find>
       <find>Exchange</find>
       <find>Condition</find>
+      <find>TeachingStuff</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -82,10 +66,8 @@
         <option value="$PROJECT_DIR$/scripts/address.js" />
         <option value="$PROJECT_DIR$/scripts/teachingStuff/teachingStuff.js" />
         <option value="$PROJECT_DIR$/scripts/extension.js" />
-        <option value="$PROJECT_DIR$/scripts/teachingstuff/teachingStuff.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/scripts/content.js" />
-        <option value="$PROJECT_DIR$/scripts/vehicle/vehicle.js" />
         <option value="$PROJECT_DIR$/scripts/jsonobjects/domElements.js" />
         <option value="$PROJECT_DIR$/elements.json" />
         <option value="$PROJECT_DIR$/resources/RealEstate-Elements.json" />
@@ -99,6 +81,8 @@
         <option value="$PROJECT_DIR$/scripts/realestate/realEstate.js" />
         <option value="$PROJECT_DIR$/scripts/mobilephone/mobilePhone.js" />
         <option value="$PROJECT_DIR$/scripts/pocketwatch/pocketWatch.js" />
+        <option value="$PROJECT_DIR$/scripts/teachingstuff/teachingStuff.js" />
+        <option value="$PROJECT_DIR$/scripts/vehicle/vehicle.js" />
         <option value="$PROJECT_DIR$/resources/DOM-Elements.json" />
       </list>
     </option>
@@ -231,12 +215,12 @@
       <workItem from="1563789586404" duration="275000" />
       <workItem from="1563908790936" duration="799000" />
       <workItem from="1563996067326" duration="1821000" />
-      <workItem from="1564172571980" duration="19090000" />
+      <workItem from="1564172571980" duration="20466000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50665000" />
+    <option name="totallyTimeSpent" value="52041000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1121" extended-state="6" />
@@ -384,27 +368,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/teachingstuff/teachingStuff.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="36" column="42" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/enums.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="10" column="17" lean-forward="true" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/vehicle/vehicle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="806">
-          <caret line="62" column="10" selection-start-line="62" selection-start-column="10" selection-end-line="62" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/jquery.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="334">
@@ -429,13 +392,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/realestate/realEstate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="24" column="17" lean-forward="true" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/classifieds/GETClassifiedForm.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-201">
@@ -457,24 +413,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/enums.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="12" column="2" lean-forward="true" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/mobilephone/mobilePhone.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="28" selection-start-line="28" selection-end-line="29" selection-end-column="100" />
+        <state relative-caret-position="791">
+          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/pocketwatch/pocketWatch.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+        <state relative-caret-position="273">
+          <caret line="21" column="31" lean-forward="true" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/realestate/realEstate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="8" selection-start-line="8" selection-end-line="22" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/teachingstuff/teachingStuff.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="25" column="17" lean-forward="true" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/vehicle/vehicle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="30" column="31" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/DOM-Elements.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="728">
-          <caret line="56" column="58" lean-forward="true" selection-start-line="56" selection-start-column="58" selection-end-line="56" selection-end-column="58" />
+        <state relative-caret-position="826">
+          <caret line="65" column="20" selection-start-line="65" selection-start-column="20" selection-end-line="65" selection-end-column="20" />
         </state>
       </provider>
     </entry>

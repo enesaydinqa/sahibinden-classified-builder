@@ -5,60 +5,78 @@ async function vehicleFormFill() {
         bubbles: true
     });
 
-    // INPUTS
+    var init = {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+        mode: 'cors',
+        cache: 'default'
+    };
 
-    let inputs = new Map();
+    const url = chrome.extension.getURL(Resources.DOM_ELEMENTS_JSON_PATH);
 
-    inputs.set("[name='addClassifiedTitle']", randomGenerate(5).concat(" ").concat(randomGenerate(7).concat(" ").concat(randomGenerate(8))));
-    inputs.set("[name='addClassifiedDetail']  textarea", "<p>".concat(randomGenerate(500)).concat("</p>"));
-    inputs.set("[name='addClassifiedPrice']", randomNumberGenerate(2).concat(".").concat(randomNumberGenerate(3)));
-    inputs.set("[name='a4']", randomNumberGenerate(2).concat(".").concat(randomNumberGenerate(3)));
+    let request = new Request(url, init);
 
-    inputs.forEach(function (value, key) {
-        const input = document.querySelector(key);
-        input.value = value;
-        input.dispatchEvent(changeEvent);
-    });
+    fetch(request)
+        .then(function (resp) {
+            return resp.json();
+        }).then(async function (data) {
 
-    // SELECT BOXES
+        // INPUTS
 
-    let selectBoxes = [
-        "[an-form-object-name='Renk']",
-        "[an-form-object-name='Garanti']",
-        "[an-form-object-name='Plaka / Uyruk']",
-        "[an-form-object-name='Takaslı']"
-    ];
+        let inputs = new Map();
 
-    selectBoxes.forEach(function (elementName) {
+        inputs.set(data.Generic.ClassifiedTitle, randomGenerate(5).concat(" ").concat(randomGenerate(7).concat(" ").concat(randomGenerate(8))));
+        inputs.set(data.Generic.ClassifiedDetail, "<p>".concat(randomGenerate(500)).concat("</p>"));
+        inputs.set(data.Generic.ClassifiedPrice, randomNumberGenerate(2).concat(".").concat(randomNumberGenerate(3)));
+        inputs.set(data.Vehicle.KM, randomNumberGenerate(2).concat(".").concat(randomNumberGenerate(3)));
 
-        const select = document.querySelector(elementName);
+        inputs.forEach(function (value, key) {
+            const input = document.querySelector(key);
+            input.value = value;
+            input.dispatchEvent(changeEvent);
+        });
 
-        if (typeof (select) != 'undefined' && select != null) {
-            const selectBoxItems = select.options.length;
-            select.selectedIndex = Math.floor(Math.random() * (selectBoxItems - 1)) + 1;
-            select.dispatchEvent(changeEvent);
-        }
-    });
+        // SELECT BOXES
 
-    await selectAddresses(false);
+        let selectBoxes = [
+            data.Vehicle.Color,
+            data.Vehicle.Warranty,
+            data.Vehicle.Nationality,
+            data.Vehicle.Exchange
+        ];
 
-    // CHECKBOXES
+        selectBoxes.forEach(function (elementName) {
 
-    let checkboxes = [".post-detailed-information input[type='checkbox']", ".post-detailed-information input[type='radio']"];
+            const select = document.querySelector(elementName);
 
-    checkboxes.forEach(check => {
-
-        const checkbox = document.querySelectorAll(check);
-
-        checkbox.forEach(checkbox => {
-
-            const random_boolean = Math.random() >= 0.5;
-
-            if (random_boolean) {
-                checkbox.click();
+            if (typeof (select) != 'undefined' && select != null) {
+                const selectBoxItems = select.options.length;
+                select.selectedIndex = Math.floor(Math.random() * (selectBoxItems - 1)) + 1;
+                select.dispatchEvent(changeEvent);
             }
         });
-    });
 
-    await postRulesCheck();
+        await selectAddresses(data,false);
+
+        // CHECKBOXES
+
+        let checkboxes = [data.Generic.PostDetailInformation, data.Vehicle.PostDetailInformation];
+
+        checkboxes.forEach(check => {
+
+            const checkbox = document.querySelectorAll(check);
+
+            checkbox.forEach(checkbox => {
+
+                const random_boolean = Math.random() >= 0.5;
+
+                if (random_boolean) {
+                    checkbox.click();
+                }
+            });
+        });
+
+        await postRulesCheck(data);
+
+    });
 }

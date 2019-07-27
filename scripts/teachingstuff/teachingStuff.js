@@ -6,58 +6,76 @@ async function teachingStuffFormFill() {
         bubbles: true
     });
 
-    // INPUTS
 
-    let inputs = new Map();
+    var init = {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+        mode: 'cors',
+        cache: 'default'
+    };
 
-    inputs.set("[name='addClassifiedTitle']", randomGenerate(5).concat(" ").concat(randomGenerate(7).concat(" ").concat(randomGenerate(8))));
-    inputs.set("[name='addClassifiedDetail']  textarea", "<p>".concat(randomGenerate(500)).concat("</p>"));
-    inputs.set("[name='addClassifiedPrice']", randomNumberGenerate(1).concat(".").concat(randomNumberGenerate(3)));
+    const url = chrome.extension.getURL(Resources.DOM_ELEMENTS_JSON_PATH);
 
-    inputs.forEach(function (value, key) {
-        const input = document.querySelector(key);
-        input.value = value;
-        input.dispatchEvent(changeEvent);
-    });
+    let request = new Request(url, init);
 
+    fetch(request)
+        .then(function (resp) {
+            return resp.json();
+        }).then(async function (data) {
 
-    // SELECT BOXES
+        // INPUTS
 
-    let selectBoxes = [
-        "select[an-form-object-name='Ders']",
-        "select[an-form-object-name='Ders Yeri'], select[an-form-object-name='Ders Aracı'], select[an-form-object-name='Spor Dalı']",
-        "select[an-form-object-name='Cinsiyet']"
-    ];
+        let inputs = new Map();
 
-    selectBoxes.forEach(function (elementName) {
+        inputs.set(data.Generic.ClassifiedTitle, randomGenerate(5).concat(" ").concat(randomGenerate(7).concat(" ").concat(randomGenerate(8))));
+        inputs.set(data.Generic.ClassifiedDetail, "<p>".concat(randomGenerate(500)).concat("</p>"));
+        inputs.set(data.Generic.ClassifiedPrice, randomNumberGenerate(1).concat(".").concat(randomNumberGenerate(3)));
 
-        const select = document.querySelector(elementName);
-
-        if (typeof (select) != 'undefined' && select != null) {
-            const selectItems = select.options.length;
-            select.selectedIndex = Math.floor(Math.random() * (selectItems - 1)) + 1;
-            select.dispatchEvent(changeEvent);
-        }
-    });
+        inputs.forEach(function (value, key) {
+            const input = document.querySelector(key);
+            input.value = value;
+            input.dispatchEvent(changeEvent);
+        });
 
 
-    // CHECKBOXES
+        // SELECT BOXES
 
-    let checkboxes = [".detail-attributes-container [type='checkbox']"];
+        let selectBoxes = [
+            data.TeachingStuff.Education,
+            data.TeachingStuff.EducationAbout,
+            data.TeachingStuff.Gender
+        ];
 
-    checkboxes.forEach(function (selector) {
+        selectBoxes.forEach(function (elementName) {
 
-        const checkbox = document.querySelectorAll(selector);
+            const select = document.querySelector(elementName);
 
-        checkbox.forEach(check => {
-            const random_boolean = Math.random() >= 0.5;
-
-            if (random_boolean) {
-                check.click();
+            if (typeof (select) != 'undefined' && select != null) {
+                const selectItems = select.options.length;
+                select.selectedIndex = Math.floor(Math.random() * (selectItems - 1)) + 1;
+                select.dispatchEvent(changeEvent);
             }
-        })
-    });
+        });
 
-    await selectAddresses(false);
-    await postRulesCheck();
+
+        // CHECKBOXES
+
+        let checkboxes = [data.TeachingStuff.DetailAttribute];
+
+        checkboxes.forEach(function (selector) {
+
+            const checkbox = document.querySelectorAll(selector);
+
+            checkbox.forEach(check => {
+                const random_boolean = Math.random() >= 0.5;
+
+                if (random_boolean) {
+                    check.click();
+                }
+            })
+        });
+
+        await selectAddresses(data,false);
+        await postRulesCheck(data);
+    });
 }
