@@ -1,5 +1,6 @@
 {
   "name": "sahibinden.com - classified builder",
+  "short_name": "shbdn - classified builder",
   "version": "1.0",
   "manifest_version": 2,
   "description": "sahibinden classified form fill extension",
