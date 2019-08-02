@@ -27,7 +27,7 @@ async function selectAddresses(objects, isInApartmentComplex) {
         sleep(300);
     }
 
-    let quarterSelectInterval = setInterval(checkElementNotDisabled, 300);
+    let quarterSelectInterval = await setInterval(checkElementNotDisabled, 300);
 
     const quarterSelectItems = quarterSelect.options.length;
     quarterSelect.selectedIndex = Math.floor(Math.random() * (quarterSelectItems - 1)) + 1;
@@ -47,7 +47,7 @@ async function selectAddresses(objects, isInApartmentComplex) {
             sleep(300);
         }
 
-        let inApartmentComplexSelectInterval = setInterval(checkElementExist, 300);
+        let inApartmentComplexSelectInterval = await setInterval(checkElementExist, 300);
 
         const inApartmentComplexSelect = document.getElementsByName(objects.Address.InApartmentComplex)[0];
 
