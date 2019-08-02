@@ -60,7 +60,7 @@ async function mobilePhoneFormFill(isGet) {
             }
         });
 
-        await sleep(1000);
+        await sleep(2000);
 
         const warrantyType = document.querySelector(data.MobilePhone.WarrantyType);
         const warrantyTypeSelectItems = warrantyType.options.length;
@@ -112,5 +112,5 @@ async function defaultMobilePhoneClassifiedFormFill(objects) {
         }
     });
 
-    await selectAddresses(objects,false);
+    await selectAddresses(objects, false);
 }
