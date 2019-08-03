@@ -17,6 +17,8 @@ async function selectAddresses(objects, isInApartmentComplex) {
     townSelect.dispatchEvent(changeEvent);
     await sleep(800);
 
+    const quarterSelectInterval = setInterval(checkElementNotDisabled, 300);
+
     function checkElementNotDisabled() {
 
         console.log("check quarter not disabled");
@@ -27,13 +29,13 @@ async function selectAddresses(objects, isInApartmentComplex) {
         sleep(300);
     }
 
-    let quarterSelectInterval = await setInterval(checkElementNotDisabled, 300);
-
     const quarterSelectItems = quarterSelect.options.length;
     quarterSelect.selectedIndex = Math.floor(Math.random() * (quarterSelectItems - 1)) + 1;
     quarterSelect.dispatchEvent(changeEvent);
 
     if (isInApartmentComplex) {
+
+        const inApartmentComplexSelectInterval = setInterval(checkElementExist, 300);
 
         function checkElementExist() {
 
@@ -41,19 +43,16 @@ async function selectAddresses(objects, isInApartmentComplex) {
 
             console.log("check in apartment complex element exist");
 
-            if (typeof(inApartmentComplexSelect) != 'undefined' && inApartmentComplexSelect != null) {
+            if (typeof (inApartmentComplexSelect) != 'undefined' && inApartmentComplexSelect != null) {
                 clearInterval(inApartmentComplexSelectInterval)
             }
             sleep(300);
         }
-
-        let inApartmentComplexSelectInterval = await setInterval(checkElementExist, 300);
 
         const inApartmentComplexSelect = document.getElementsByName(objects.Address.InApartmentComplex)[0];
 
         const inApartmentComplexSelectItems = inApartmentComplexSelect.options.length;
         inApartmentComplexSelect.selectedIndex = Math.floor(Math.random() * (inApartmentComplexSelectItems - 1)) + 1;
         inApartmentComplexSelect.dispatchEvent(changeEvent);
-        await sleep(3000);
     }
 }

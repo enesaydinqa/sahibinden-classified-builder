@@ -67,7 +67,7 @@ async function mobilePhoneFormFill(isGet) {
         warrantyType.selectedIndex = Math.floor(Math.random() * (warrantyTypeSelectItems - 1)) + 1;
         warrantyType.dispatchEvent(changeEvent);
 
-        // CHECKBOXES
+        // CHECK-BOXES
 
         const checkbox = document.querySelectorAll(data.Generic.PostDetailInformation);
 

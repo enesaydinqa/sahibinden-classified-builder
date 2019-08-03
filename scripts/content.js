@@ -4,20 +4,31 @@ chrome.runtime.onMessage.addListener(async function (request, sender, sendRespon
 
         console.log(data);
 
-        if (data === Category.REAL_ESTATE) {
-            await realEstateFormFill();
-        } else if (data === Category.POCKET_WATCH) {
-            await pocketWatchFormFill(false);
-        } else if (data === Category.POCKET_WATCH_GET) {
-            await pocketWatchFormFill(true);
-        } else if (data === Category.TEACHING_STAFF) {
-            await teachingStuffFormFill();
-        } else if (data === Category.MOBILE_PHONE_GET) {
-            await mobilePhoneFormFill(true)
-        } else if (data === Category.MOBILE_PHONE) {
-            await mobilePhoneFormFill(false)
-        } else if (data === Category.VEHICLE) {
-            await vehicleFormFill();
+        switch (data) {
+            case Category.REAL_ESTATE:
+                await realEstateFormFill();
+                break;
+            case Category.POCKET_WATCH:
+                await pocketWatchFormFill(false);
+                break;
+            case Category.POCKET_WATCH_GET:
+                await pocketWatchFormFill(true);
+                break;
+            case Category.TEACHING_STAFF:
+                await teachingStuffFormFill();
+                break;
+            case Category.MOBILE_PHONE_GET:
+                await mobilePhoneFormFill(true);
+                break;
+            case Category.MOBILE_PHONE:
+                await mobilePhoneFormFill(false);
+                break;
+            case Category.VEHICLE:
+                await vehicleFormFill();
+                break;
+
+            default :
+                console.log("category not selected !");
         }
 
         sendResponse({

@@ -13,7 +13,7 @@ button.addEventListener('click', function () {
         header.html(checkedCategory);
     } else {
         header.css("background-color", "#ff1b00");
-        header.html("Please Category Select");
+        header.html("Please Select Category");
     }
 
     chrome.tabs.query({
