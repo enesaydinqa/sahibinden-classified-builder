@@ -10,6 +10,7 @@ button.addEventListener('click', function () {
 
     if (checkedCategory !== null) {
         header.css("background-color", "");
+        header.css("color", "#000000");
         header.html(checkedCategory);
     } else {
         header.css("background-color", "#ff1b00");
