@@ -6,13 +6,14 @@ button.addEventListener('click', function () {
 
     const checkedCategory = getCheckedCategory();
 
-    const header = $('#header');
+    const header = $("#header");
 
     if (checkedCategory !== null) {
         header.css("background-color", "");
         header.html(checkedCategory);
     } else {
         header.css("background-color", "#ff1b00");
+        header.css("color", "#f0f4f9");
         header.html("Please Select Category");
     }
 
@@ -22,7 +23,7 @@ button.addEventListener('click', function () {
     }, function (tabs) {
         chrome.tabs.sendMessage(tabs[0].id, {
             "data": checkedCategory
-        }, function (response) {
+        }, function () {
             console.log('success');
         });
     });
