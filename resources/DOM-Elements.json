@@ -20,14 +20,15 @@
     "AddCargoRefundCourier": "[name='addCargoRefundCourier'] [type='checkbox']",
     "CargoDeliveryDuration": "cargoDeliveryDuration",
     "CargoNotFore": ".cargo-note-for textarea",
-    "SalesContract": "salesContract",
-    "ThirdPartyMarketplaceAgreement": "thirdpartyMarketplaceAgreement"
+    "SalesContract": "salesContract"
   },
   "Address": {
     "City": "city",
     "Town": "town",
     "Quarter": "quarter",
-    "InApartmentComplex": "inApartmentComplex"
+    "InApartmentComplex": "[name='inApartmentComplex']",
+    "MapContainer": ".map-container",
+    "NewAddressSection": ".new-address-section"
   },
   "RealEstate": {
     "SquareMeterGross": "[name='a24']",
@@ -47,14 +48,13 @@
   "MobilePhone": {
     "OS": "[an-form-object-name='İşletim Sistemi']",
     "InternalMemory": "[an-form-object-name='Dahili Hafıza']",
-    "ScreenSize": "[an-form-object-name='Ekran Boyutu']",
     "RAMMemory": "[an-form-object-name='RAM Bellek']",
     "Camera": "[an-form-object-name='Kamera']",
     "FrontCamera": "[an-form-object-name='Ön Kamera']",
     "Color": "[an-form-object-name='Renk']",
     "RecordType": "[an-form-object-name='Kayıt Türü']",
     "Warranty": "[an-form-object-name='Garanti']",
-    "WarrantyType": "[an-form-object-name='Garanti Türü']"
+    "ScreenSize": "[an-form-object-name='Ekran Boyutu (İnç)']"
   },
   "TeachingStuff": {
     "Education": "select[an-form-object-name='Ders']",

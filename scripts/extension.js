@@ -1,6 +1,7 @@
 document.getElementById("header").textContent = "Select Category";
 
 const button = document.getElementById("save");
+const categorySelectButton = document.querySelectorAll(".step-by-step");
 
 button.addEventListener('click', function () {
 
@@ -29,6 +30,22 @@ button.addEventListener('click', function () {
         });
     });
 
+});
+
+
+categorySelectButton.forEach(function (elem) {
+    elem.addEventListener("click", function (el) {
+        chrome.tabs.query({
+            active: true,
+            currentWindow: true
+        }, function (tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, {
+                "data": el.target.name
+            }, function () {
+                console.log('success');
+            });
+        });
+    });
 });
 
 function getCheckedCategory() {

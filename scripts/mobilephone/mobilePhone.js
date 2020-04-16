@@ -13,7 +13,7 @@ async function mobilePhoneFormFill(isGet) {
         cache: 'default'
     };
 
-    const url = chrome.extension.getURL(Resources.DOM_ELEMENTS_JSON_PATH);
+    const url = chrome.extension.getURL(resources.DOM_ELEMENTS_JSON_PATH);
 
     let request = new Request(url, init);
 
@@ -30,9 +30,13 @@ async function mobilePhoneFormFill(isGet) {
         inputs.set(data.Generic.ClassifiedDetail, "<p>".concat(randomGenerate(500)).concat("</p>"));
 
         inputs.forEach(function (value, key) {
-            const input = document.querySelector(key);
-            input.value = value;
-            input.dispatchEvent(changeEvent);
+            try {
+                const input = document.querySelector(key);
+                input.value = value;
+                input.dispatchEvent(changeEvent);
+            } catch (err) {
+                console.log("element not found ", value)
+            }
         });
 
         // SELECT BOXES
@@ -61,11 +65,6 @@ async function mobilePhoneFormFill(isGet) {
         });
 
         await sleep(2000);
-
-        const warrantyType = document.querySelector(data.MobilePhone.WarrantyType);
-        const warrantyTypeSelectItems = warrantyType.options.length;
-        warrantyType.selectedIndex = Math.floor(Math.random() * (warrantyTypeSelectItems - 1)) + 1;
-        warrantyType.dispatchEvent(changeEvent);
 
         // CHECK-BOXES
 
@@ -113,4 +112,29 @@ async function defaultMobilePhoneClassifiedFormFill(objects) {
     });
 
     await selectAddresses(objects, false);
+}
+
+async function stepByStepMobilePhoneCategorySelect() {
+
+    let isClosedDraftPopup = false;
+
+    for (var i = 0; i <= 4; i++) {
+
+        let stepByStepCategoryIndex = [4, 2, 1, randomNumberGenerate(2), 1];
+        let category = ".category-select-box div[scrollbar='category_select_scrollbar" + i + "'] li:nth-child(" + stepByStepCategoryIndex[i] + ")";
+
+        console.log(category);
+        ready(category, function (element) {
+            element.click();
+        });
+
+        if (!isClosedDraftPopup) {
+            let popUp = "div[class='dialog-content  dialogEffect'] .dialog-buttons > button:nth-child(2)";
+
+            ready(popUp, function (element) {
+                element.click();
+                isClosedDraftPopup = true;
+            });
+        }
+    }
 }

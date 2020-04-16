@@ -74,13 +74,4 @@ async function classifiedGETAreaFill(objects) {
         salesContractCheckbox.click();
         salesContractCheckbox.dispatchEvent(changeEvent);
     }
-
-
-    const thirdPartyMarketplaceAgreementCheckbox = document.getElementsByName(objects.GET.ThirdPartyMarketplaceAgreement)[0]; // Üçüncü Taraf Pazar Yeri Sözleşmesi
-    thirdPartyMarketplaceAgreementCheckbox.click();
-
-    if (thirdPartyMarketplaceAgreementCheckbox.checked === false) {
-        thirdPartyMarketplaceAgreementCheckbox.click();
-        thirdPartyMarketplaceAgreementCheckbox.dispatchEvent(changeEvent);
-    }
 }

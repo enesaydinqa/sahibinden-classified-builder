@@ -12,7 +12,7 @@ async function vehicleFormFill() {
         cache: 'default'
     };
 
-    const url = chrome.extension.getURL(Resources.DOM_ELEMENTS_JSON_PATH);
+    const url = chrome.extension.getURL(resources.DOM_ELEMENTS_JSON_PATH);
 
     let request = new Request(url, init);
 
@@ -56,7 +56,7 @@ async function vehicleFormFill() {
             }
         });
 
-        await selectAddresses(data,false);
+        await selectAddresses(data, false);
 
         // CHECKBOXES
 
@@ -78,5 +78,38 @@ async function vehicleFormFill() {
 
         await postRulesCheck(data);
 
+    });
+}
+
+async function stepByStepVehicleCategorySelect() {
+
+    let isClosedDraftPopup = false;
+
+    for (var i = 0; i <= 8; i++) {
+
+        let stepByStepCategoryIndex = [2, 1, randomNumberGenerate(1), 3, 1, 2, 1, 1, 1];
+        let category = ".category-select-box div[scrollbar='category_select_scrollbar" + i + "'] li:nth-child(" + stepByStepCategoryIndex[i] + ")";
+
+        console.log(category);
+        ready(category, function (element) {
+            element.click();
+        });
+
+        if (!isClosedDraftPopup) {
+            let popUp = "div[class='dialog-content  dialogEffect'] .dialog-buttons > button:nth-child(2)";
+
+            ready(popUp, function (element) {
+                element.click();
+                isClosedDraftPopup = true;
+            });
+        }
+    }
+
+    ready(".eurotax-table tr.eurotax-select-element", function (element) {
+        element.click();
+    });
+
+    ready(".process-done button", function (element) {
+        element.click();
     });
 }

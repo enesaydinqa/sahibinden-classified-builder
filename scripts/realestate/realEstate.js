@@ -13,7 +13,7 @@ async function realEstateFormFill() {
         cache: 'default'
     };
 
-    const url = chrome.extension.getURL(Resources.DOM_ELEMENTS_JSON_PATH);
+    const url = chrome.extension.getURL(resources.DOM_ELEMENTS_JSON_PATH);
 
     let request = new Request(url, init);
 
@@ -55,9 +55,15 @@ async function realEstateFormFill() {
 
         selectBoxes.forEach(function (elementName) {
             const select = document.getElementsByName(elementName)[0];
-            const selectBoxItems = select.options.length;
-            select.selectedIndex = Math.floor(Math.random() * (selectBoxItems - 1)) + 1;
-            select.dispatchEvent(changeEvent);
+
+            if (select.getAttribute("an-form-object-name") === "Bulunduğu Kat") {
+                selectByLabel(select, "1", changeEvent);
+            } else {
+                const selectBoxItems = select.options.length;
+                select.selectedIndex = Math.floor(Math.random() * (selectBoxItems - 1)) + 1;
+                select.dispatchEvent(changeEvent);
+            }
+
         });
 
         // CHECKBOXES
@@ -84,5 +90,31 @@ async function realEstateFormFill() {
 
         await selectAddresses(data, true);
         await postRulesCheck(data);
+    });
+}
+
+async function stepByStepRealEstateCategorySelect() {
+
+    let isClosedDraftPopup = false;
+
+    for (var i = 0; i <= 3; i++) {
+        let category = ".category-select-box div[scrollbar='category_select_scrollbar" + i + "'] li:nth-child(1)";
+
+        ready(category, function (element) {
+            element.click();
+        });
+
+        if (!isClosedDraftPopup) {
+            let popUp = "div[class='dialog-content  dialogEffect'] .dialog-buttons > button:nth-child(2)";
+
+            ready(popUp, function (element) {
+                element.click();
+                isClosedDraftPopup = true;
+            });
+        }
+    }
+
+    ready(".process-done button", function (element) {
+        element.click();
     });
 }

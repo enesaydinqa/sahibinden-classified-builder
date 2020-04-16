@@ -1,29 +1,44 @@
 chrome.runtime.onMessage.addListener(async function (request, sender, sendResponse) {
 
-        const data = request.data;
+        const category = request.data;
 
-        console.log(data);
+        console.log(category);
 
-        switch (data) {
-            case Category.REAL_ESTATE:
+        switch (category) {
+            case stepByStepCategory.REAL_ESTATE:
+                await stepByStepRealEstateCategorySelect();
+                break;
+            case stepByStepCategory.POCKET_WATCH:
+                await stepByStepPocketWatchCategorySelect();
+                break;
+            case stepByStepCategory.MOBILE_PHONE:
+                await stepByStepMobilePhoneCategorySelect();
+                break;
+            case stepByStepCategory.VEHICLE:
+                await stepByStepVehicleCategorySelect();
+                break;
+            case stepByStepCategory.TEACHING_STAFF:
+                await stepByStepTeachingStuffCategorySelect();
+                break;
+            case classifiedCategory.REAL_ESTATE:
                 await realEstateFormFill();
                 break;
-            case Category.POCKET_WATCH:
+            case classifiedCategory.POCKET_WATCH:
                 await pocketWatchFormFill(false);
                 break;
-            case Category.POCKET_WATCH_GET:
+            case classifiedCategory.POCKET_WATCH_GET:
                 await pocketWatchFormFill(true);
                 break;
-            case Category.TEACHING_STAFF:
+            case classifiedCategory.TEACHING_STAFF:
                 await teachingStuffFormFill();
                 break;
-            case Category.MOBILE_PHONE_GET:
+            case classifiedCategory.MOBILE_PHONE_GET:
                 await mobilePhoneFormFill(true);
                 break;
-            case Category.MOBILE_PHONE:
+            case classifiedCategory.MOBILE_PHONE:
                 await mobilePhoneFormFill(false);
                 break;
-            case Category.VEHICLE:
+            case classifiedCategory.VEHICLE:
                 await vehicleFormFill();
                 break;
 
@@ -32,7 +47,7 @@ chrome.runtime.onMessage.addListener(async function (request, sender, sendRespon
         }
 
         sendResponse({
-            data: data,
+            data: category,
             success: true
         });
     }
